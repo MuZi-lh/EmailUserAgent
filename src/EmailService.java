@@ -164,7 +164,7 @@ class EmailService {
         int c = 0;
         try {
             String in = br.readLine();
-            System.out.println(in);
+//            System.out.println(in);
             String[] mail = in.split(" ");
             c = Integer.parseInt(mail[1]);
         } catch (IOException e) {
@@ -194,11 +194,12 @@ class EmailService {
             String tempStr = "";
             String key = null, value = null;
             while (true) {
-                System.out.println(response);
+//                System.out.println(response);
                 if (response.contains(":") && response.split(":").length > 1) {
                     key = response.split(":")[0];
                     value = response.split(":")[1];
                     while (!(tempStr = br.readLine()).contains(":")) {
+                        // 针对value较长，有多行的情况
                         if (tempStr.equals("")) {
                             break;
                         }
@@ -210,6 +211,7 @@ class EmailService {
                     while (!(tempStr = br.readLine()).equals(".")) {
                         response += tempStr;
                     }
+//                    System.out.println(response);
                     byte[] bytes = response.getBytes();
                     mailInfoList.put("Content", new String(bytes, StandardCharsets.UTF_8));
                 } else {
