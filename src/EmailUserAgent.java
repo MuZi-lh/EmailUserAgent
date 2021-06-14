@@ -9,7 +9,8 @@ class EmailUserAgent extends Thread{
     @Override
     public void run() {
         try {
-            socket = new ServerSocket(1010);//mailService的端口号
+            //mailService的端口号
+            socket = new ServerSocket(60541);
         } catch (IOException e) {
             e.printStackTrace();
         }

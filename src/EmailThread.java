@@ -27,7 +27,6 @@ public class EmailThread extends Thread {
     public void run() {
         boolean state = false;
         String apiInfo = readApiInfo(this.in);
-//        System.out.println(apiInfo);
         params.clear();
         if (!apiInfo.contains("?")) {
             System.out.println("EmailUserAgent请求中未带有参数！");
@@ -65,8 +64,7 @@ public class EmailThread extends Thread {
                 }
             }
         } else if (params.get("type").equals("query")) {
-            //todo:这里是查询邮件的业务逻辑
-//            System.out.println("pop login");
+            // todo:这里是查询邮件的业务逻辑
             String mailJson = emailService.queryMail(params);
             String result = "HTTP/1.1 200 ok \n" +
                     "Content-Type: application/json;charset=UTF-8 \n" +

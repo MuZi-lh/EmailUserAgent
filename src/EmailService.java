@@ -23,14 +23,13 @@ class EmailService {
 
     EmailService(String mailServerAddress) {
     	this.mailServerAddress = mailServerAddress;
-//      System.out.println(mailServerAddress);
     	this.postFix = this.mailServerAddress.split("mtp.")[1];
     	try {
-    		socket = new Socket(mailServerAddress, 25);//和邮箱服务器25号端口通信
+    		socket = new Socket(mailServerAddress, 25);
+    		//和邮箱服务器25号端口通信
     		this.in = socket.getInputStream();
     		this.out = socket.getOutputStream();
     		br = new BufferedReader(new InputStreamReader(this.in));
-//          System.out.println(br.readLine());
     		br.readLine();
     		printWriter = new PrintWriter(new OutputStreamWriter(out));
     		System.out.println("Email User Agent连接到邮箱服务器成功！");
@@ -42,31 +41,24 @@ class EmailService {
     boolean login(String username, String password) {
         this.username = username;
         this.password = password;
-//        System.out.println(username+" "+password);
-//        System.out.println(mailServerAddress);
         try {
             printWriter.print("HELO " + mailServerAddress + CRLF);
             printWriter.flush();
             response = br.readLine();
-//            System.out.println(response);
-            if(mailServerAddress.contains("qq")){//对于qq邮箱的通信要进行特殊处理
+            if(mailServerAddress.contains("qq")){
+                //对于qq邮箱的通信要进行特殊处理
                 response = br.readLine();
                 response = br.readLine();
             }
-//            System.out.println(response);
             printWriter.print("AUTH LOGIN\r\n");
             printWriter.flush();
             response = br.readLine();
-//            System.out.println(response);
             printWriter.print(Base64.getEncoder().encodeToString(username.getBytes()) + CRLF);
             printWriter.flush();
             response = br.readLine();
-//            System.out.println(response);
             printWriter.print(Base64.getEncoder().encodeToString(password.getBytes()) + CRLF);
-//            System.out.println(Base64.getEncoder().encodeToString(password.getBytes()) + CRLF);
             printWriter.flush();
             response = br.readLine();
-//            System.out.println(response);
             if (!response.equals("235 Authentication successful"))
                 return false;
         } catch (Exception e) {
@@ -101,9 +93,7 @@ class EmailService {
 
 
     String queryMail(Map<String, String> params) {
-//        System.out.println("pop login");
         boolean state = popLogin(params);
-//        System.out.println("pop login");
         if (state) {
             return getMails(params);
         }
@@ -117,7 +107,6 @@ class EmailService {
         printWriter.print("stat" + CRLF);
         printWriter.flush();
         count = count();
-//        System.out.println(count);
         jsonObject.put("totalCount", count);
         int start = Integer.parseInt(params.getOrDefault("startIndex", "1"));
         int end = Integer.parseInt(params.getOrDefault("endIndex", "10"));

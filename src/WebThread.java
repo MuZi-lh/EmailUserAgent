@@ -2,14 +2,10 @@ import java.io.*;
 import java.net.Socket;
 
 public class WebThread extends Thread {
- //   private static String ROOT = "";
     private InputStream inputStream;
     private OutputStream outputStream;
 
     WebThread(Socket sk) {
-//        String defaultDir = ReadConfigUtils.configList.getOrDefault("defaultWebDir","/webPage");
-//        String defaultDir = "/webPage";
-//        ROOT = System.getProperty("user.dir") + defaultDir;
         try {
             this.inputStream = sk.getInputStream();
             this.outputStream = sk.getOutputStream();
@@ -26,11 +22,9 @@ public class WebThread extends Thread {
 
     private void response(String filePath) {
         if(filePath.equals("/")){
-//            filePath = ReadConfigUtils.configList.getOrDefault("defaultPage", "/index.html");
             filePath = "/index.html";
         }
         try {
-//            File file = new File(ROOT + filePath);
         	File file = new File(System.getProperty("user.dir")+filePath);
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             String readLine = null;
