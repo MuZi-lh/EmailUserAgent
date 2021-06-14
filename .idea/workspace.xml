@@ -7,27 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5d6440a-be79-4e4a-89e1-d146f6706a05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Agent1/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmailThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmailThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmailUserAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmailUserAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WebThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WebThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>login</find>
-      <find>System.out</find>
-      <find>连接到</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,26 +73,58 @@
       <updated>1592307494112</updated>
       <workItem from="1592307497546" duration="7372000" />
       <workItem from="1592351286534" duration="3880000" />
-      <workItem from="1623638276684" duration="2986000" />
+      <workItem from="1623638276684" duration="10925000" />
     </task>
+    <task id="LOCAL-00001" summary="deleted unnecessary comments 06/14">
+      <created>1623641596458</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623641596458</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="deleted unnecessary comments 06/14" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted unnecessary comments 06/14" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="400" y="227" key="CommitChangelistDialog2" timestamp="1623641593449">
+      <screen x="70" y="0" width="2490" height="1440" />
+    </state>
+    <state x="400" y="227" key="CommitChangelistDialog2/70.0.2490.1440@70.0.2490.1440" timestamp="1623641593449" />
+    <state width="1436" height="399" key="GridCell.Tab.0.bottom" timestamp="1623655148776">
+      <screen x="70" y="0" width="2490" height="1440" />
+    </state>
+    <state width="1436" height="399" key="GridCell.Tab.0.bottom/70.0.2490.1440@70.0.2490.1440" timestamp="1623655148776" />
+    <state width="1436" height="399" key="GridCell.Tab.0.center" timestamp="1623655148776">
+      <screen x="70" y="0" width="2490" height="1440" />
+    </state>
+    <state width="1436" height="399" key="GridCell.Tab.0.center/70.0.2490.1440@70.0.2490.1440" timestamp="1623655148776" />
+    <state width="1436" height="399" key="GridCell.Tab.0.left" timestamp="1623655148775">
+      <screen x="70" y="0" width="2490" height="1440" />
+    </state>
+    <state width="1436" height="399" key="GridCell.Tab.0.left/70.0.2490.1440@70.0.2490.1440" timestamp="1623655148775" />
+    <state width="1436" height="399" key="GridCell.Tab.0.right" timestamp="1623655148776">
+      <screen x="70" y="0" width="2490" height="1440" />
+    </state>
+    <state width="1436" height="399" key="GridCell.Tab.0.right/70.0.2490.1440@70.0.2490.1440" timestamp="1623655148776" />
     <state x="303" y="365" key="SettingsEditor" timestamp="1623641207648">
       <screen x="70" y="0" width="2490" height="1440" />
     </state>
     <state x="303" y="365" key="SettingsEditor/70.0.2490.1440@70.0.2490.1440" timestamp="1623641207648" />
-    <state x="593" y="635" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623641533263">
+    <state x="593" y="635" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623642136079">
       <screen x="70" y="0" width="2490" height="1440" />
     </state>
-    <state x="593" y="635" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.0.2490.1440@70.0.2490.1440" timestamp="1623641533263" />
-    <state x="458" y="344" key="run.anything.popup" timestamp="1623640803614">
+    <state x="593" y="635" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.0.2490.1440@70.0.2490.1440" timestamp="1623642136079" />
+    <state x="458" y="344" key="run.anything.popup" timestamp="1623648360564">
       <screen x="70" y="0" width="2490" height="1440" />
     </state>
-    <state x="458" y="344" key="run.anything.popup/70.0.2490.1440@70.0.2490.1440" timestamp="1623640803614" />
+    <state x="458" y="344" key="run.anything.popup/70.0.2490.1440@70.0.2490.1440" timestamp="1623648360564" />
   </component>
   <component name="masterDetails">
     <states>

@@ -18,7 +18,7 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-        <h2>欢迎使用SCU Email User Agent<small>仅支持QQ邮箱与163邮箱</small></h2>
+        <h2>欢迎使用MUZI Email User Agent<small>  仅支持QQ邮箱与163邮箱</small></h2>
     </div>
     <ul id="myTab" class="nav nav-tabs">
         <li class="active">
@@ -157,7 +157,7 @@
         }
         let sendParam = "type=send&username=" + $("#sendUsername").val() + "&password=" + $("#sendPassword").val() + "&tousername=" + $("#toUsername").val() +
             "&subject=" + $("#subject").val() + "&content=" + $("#content").val();
-        $.get("http://127.0.0.1:1010/send?" + sendParam).success(function (res) {
+        $.get("http://127.0.0.1:60541/send?" + sendParam).success(function (res) {
             alert("邮件已经成功投递到：" + $("#toUsername").val());
         }).fail(function () {
             alert("发送邮件过程发生错误！请重试！");
@@ -184,7 +184,7 @@
     
     function getExactMail(index) {
         queryParam = "type=query&username=" + username + "&password=" + password + "&startIndex=" + Number(index) + "&endIndex=" + Number(index);
-        $.get("http://127.0.0.1:1010/query?" + queryParam).success(res => {
+        $.get("http://127.0.0.1:60541/query?" + queryParam).success(res => {
             let item = res["data"][0];
             let subject = item["Subject"] === undefined ? item["subject"].substr(0,30) : item["Subject"].substr(0,30);
             $("#myMailSubject").text(subject);
@@ -195,9 +195,8 @@
 
     function deleteMail(index) {
         queryParam = "type=delete&username=" + username + "&password=" + password + "&deleteIndex=" + Number(index);
-        $.get("http://127.0.0.1:1010/delete?" + queryParam).success(res => {
+        $.get("http://127.0.0.1:60541/delete?" + queryParam).success(res => {
             if (res["deleteState"] === true){
-                alert("删除邮件成功！即将刷新邮箱！");
                 getPage(1);
             }else{
                 alert("删除邮件失败！请检查！");
@@ -206,7 +205,7 @@
     }
 
     function getMailInfo(queryParam) {
-        $.get("http://127.0.0.1:1010/query?" + queryParam).success(function (res) {
+        $.get("http://127.0.0.1:60541/query?" + queryParam).success(function (res) {
             let appendData = '';
             let tempData = '';
             for (let index in res["data"]) {
@@ -235,7 +234,6 @@
             tempData += "<li><a href=\"#\">»</a></li>";
             $("#pagination").html(tempData);
             $("#pageIndex").show();
-            alert("从服务器获取邮件列表成功！");
             $("#pagination").children().eq(activeIndex).addClass("active");
         }).fail(function () {
             alert("查询邮件过程出现错误！请重试！");

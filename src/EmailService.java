@@ -109,7 +109,7 @@ class EmailService {
         count = count();
         jsonObject.put("totalCount", count);
         int start = Integer.parseInt(params.getOrDefault("startIndex", "1"));
-        int end = Integer.parseInt(params.getOrDefault("endIndex", "10"));
+        int end = count>=10?Integer.parseInt(params.getOrDefault("endIndex", "10")):count;
         if (params.containsKey("exactIndex")) {
             mailList.add(retrieveMail(Integer.parseInt(params.get("exactIndex"))));
         } else {
@@ -163,9 +163,12 @@ class EmailService {
     private int count() {
         int c = 0;
         try {
-            String[] mail = br.readLine().split(" ");
+            String in = br.readLine();
+            System.out.println(in);
+            String[] mail = in.split(" ");
             c = Integer.parseInt(mail[1]);
         } catch (IOException e) {
+            System.out.println("读取邮件信息失败，可能是目标邮箱未开启POP服务");
             e.printStackTrace();
         }
         return c;
@@ -191,6 +194,7 @@ class EmailService {
             String tempStr = "";
             String key = null, value = null;
             while (true) {
+                System.out.println(response);
                 if (response.contains(":") && response.split(":").length > 1) {
                     key = response.split(":")[0];
                     value = response.split(":")[1];
