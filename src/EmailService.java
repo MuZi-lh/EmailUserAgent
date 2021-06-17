@@ -26,13 +26,13 @@ class EmailService {
     	this.postFix = this.mailServerAddress.split("mtp.")[1];
     	try {
     		socket = new Socket(mailServerAddress, 25);
-    		//ºÍÓÊÏä·şÎñÆ÷25ºÅ¶Ë¿ÚÍ¨ĞÅ
+    		//å’Œé‚®ç®±æœåŠ¡å™¨25å·ç«¯å£é€šä¿¡
     		this.in = socket.getInputStream();
     		this.out = socket.getOutputStream();
     		br = new BufferedReader(new InputStreamReader(this.in));
     		br.readLine();
     		printWriter = new PrintWriter(new OutputStreamWriter(out));
-    		System.out.println("Email User AgentÁ¬½Óµ½ÓÊÏä·şÎñÆ÷³É¹¦£¡");
+    		System.out.println("Email User Agentè¿æ¥åˆ°é‚®ç®±æœåŠ¡å™¨æˆåŠŸï¼");
     	} catch (IOException e) {
     		e.printStackTrace();
     	}
@@ -46,7 +46,7 @@ class EmailService {
             printWriter.flush();
             response = br.readLine();
             if(mailServerAddress.contains("qq")){
-                //¶ÔÓÚqqÓÊÏäµÄÍ¨ĞÅÒª½øĞĞÌØÊâ´¦Àí
+                //å¯¹äºqqé‚®ç®±çš„é€šä¿¡è¦è¿›è¡Œç‰¹æ®Šå¤„ç†
                 response = br.readLine();
                 response = br.readLine();
             }
@@ -68,7 +68,7 @@ class EmailService {
     }
 
     boolean sendMail(Map<String, String> params) {
-        //todo:Ä¿±êµØÖ·¡¢subject¡¢content
+        //todo:ç›®æ ‡åœ°å€ã€subjectã€content
         try {
             printWriter.print("MAIL FROM:<" + username + "@" + this.postFix + ">" + CRLF);
             printWriter.flush();
@@ -84,7 +84,7 @@ class EmailService {
             String data = "from:" + username + "@" + this.postFix + CRLF + "to:<" + params.get("tousername") + ">" + CRLF + "subject:" + String.valueOf(URLDecoder.decode(params.get("subject"), StandardCharsets.UTF_8)) + CRLF + CRLF + String.valueOf(URLDecoder.decode(params.get("content"), StandardCharsets.UTF_8)) + CRLF + "." + CRLF;
             printWriter.write(data);
             printWriter.flush();
-            System.out.println(String.format("ÓÊ¼ş·¢ËÍ³É¹¦£¡From:%s:To:%s!", username + "@" + this.postFix, params.get("tousername")));
+            System.out.println(String.format("é‚®ä»¶å‘é€æˆåŠŸï¼From:%s:To:%s!", username + "@" + this.postFix, params.get("tousername")));
         } catch (Exception e) {
             return false;
         }
@@ -108,14 +108,8 @@ class EmailService {
         printWriter.flush();
         count = count();
         jsonObject.put("totalCount", count);
-        int start = Integer.parseInt(params.getOrDefault("startIndex", "1"));
-        int end = count>=10?Integer.parseInt(params.getOrDefault("endIndex", "10")):count;
-        if (params.containsKey("exactIndex")) {
-            mailList.add(retrieveMail(Integer.parseInt(params.get("exactIndex"))));
-        } else {
-            for (int i = start; i <= end; i++) {
-                mailList.add(retrieveMail(i));
-            }
+        for (int i = 1; i <= count; i++) {
+            mailList.add(retrieveMail(i));
         }
         jsonObject.put("data", mailList);
         return jsonObject.toString();
@@ -168,7 +162,7 @@ class EmailService {
             String[] mail = in.split(" ");
             c = Integer.parseInt(mail[1]);
         } catch (IOException e) {
-            System.out.println("¶ÁÈ¡ÓÊ¼şĞÅÏ¢Ê§°Ü£¬¿ÉÄÜÊÇÄ¿±êÓÊÏäÎ´¿ªÆôPOP·şÎñ");
+            System.out.println("è¯»å–é‚®ä»¶ä¿¡æ¯å¤±è´¥ï¼Œå¯èƒ½æ˜¯ç›®æ ‡é‚®ç®±æœªå¼€å¯POPæœåŠ¡");
             e.printStackTrace();
         }
         return c;
@@ -180,7 +174,7 @@ class EmailService {
             printWriter.flush();
             response = br.readLine();
         } catch (IOException e) {
-            //todo:¶ÁÈ¡Ê±µÄ´íÎó´¦Àí¹ı³Ì
+            //todo:è¯»å–æ—¶çš„é”™è¯¯å¤„ç†è¿‡ç¨‹
         }
     }
 
@@ -196,10 +190,10 @@ class EmailService {
             while (true) {
 //                System.out.println(response);
                 if (response.contains(":") && response.split(":").length > 1) {
-                    key = response.split(":")[0];
+                    key = response.split(":")[0].toLowerCase();
                     value = response.split(":")[1];
                     while (!(tempStr = br.readLine()).contains(":")) {
-                        // Õë¶Ôvalue½Ï³¤£¬ÓĞ¶àĞĞµÄÇé¿ö
+                        // é’ˆå¯¹valueè¾ƒé•¿ï¼Œæœ‰å¤šè¡Œçš„æƒ…å†µ
                         if (tempStr.equals("")) {
                             break;
                         }
@@ -213,7 +207,7 @@ class EmailService {
                     }
 //                    System.out.println(response);
                     byte[] bytes = response.getBytes();
-                    mailInfoList.put("Content", new String(bytes, StandardCharsets.UTF_8));
+                    mailInfoList.put("content", new String(bytes, StandardCharsets.UTF_8));
                 } else {
                     response = br.readLine();
                 }

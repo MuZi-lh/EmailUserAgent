@@ -10,7 +10,7 @@ public class EmailThread extends Thread {
     private InputStream in = null;
     private OutputStream out = null;
     private Map<String, String> params = null;
-    //ÓÃÀ´±£´æ¶ÔÓ¦µÄsmtpµÄµØÖ·ºÍ¶ÔÓ¦µÄÈÏÖ¤ĞÅÏ¢µÈ
+    //ç”¨æ¥ä¿å­˜å¯¹åº”çš„smtpçš„åœ°å€å’Œå¯¹åº”çš„è®¤è¯ä¿¡æ¯ç­‰
     private Map<String, List<String>> serverAddressInfo = null;
 
     EmailThread(Socket socket) {
@@ -27,21 +27,25 @@ public class EmailThread extends Thread {
     public void run() {
         boolean state = false;
         String apiInfo = readApiInfo(this.in);
+        System.out.println(apiInfo);
         params.clear();
         if (!apiInfo.contains("?")) {
-            System.out.println("EmailUserAgentÇëÇóÖĞÎ´´øÓĞ²ÎÊı£¡");
+            System.out.println("EmailUserAgentè¯·æ±‚ä¸­æœªå¸¦æœ‰å‚æ•°ï¼");
             reportError();
             return;
         }
         for (String item : apiInfo.split("\\?")[1].split("&")) {
             params.put(item.split("=")[0], item.split("=")[1]);
         }
-        String serverName = params.get("username").split("@")[1];//servernameĞÎÍ¬163.com
-        params.put("username", params.get("username").split("@")[0]);//usernameĞÎÍ¬13258159736
+        for (String k : params.keySet()) {
+            System.out.println(k+" : "+params.get(k));
+        }
+        String serverName = params.get("username").split("@")[1];//servernameå½¢åŒ163.com
+        params.put("username", params.get("username").split("@")[0]);//usernameå½¢åŒ13258159736
         EmailService emailService = new EmailService("smtp." + serverName);//smtp.163.com
         state = emailService.login(params.get("username"), params.get("password"));
         if (!state) {
-            System.out.println("ÕËºÅ»òÃÜÂë²»ÕıÈ·£¡");
+            System.out.println("è´¦å·æˆ–å¯†ç ä¸æ­£ç¡®ï¼");
             reportError();
             return;
         }
@@ -64,7 +68,7 @@ public class EmailThread extends Thread {
                 }
             }
         } else if (params.get("type").equals("query")) {
-            // todo:ÕâÀïÊÇ²éÑ¯ÓÊ¼şµÄÒµÎñÂß¼­
+            // todo:è¿™é‡Œæ˜¯æŸ¥è¯¢é‚®ä»¶çš„ä¸šåŠ¡é€»è¾‘
             String mailJson = emailService.queryMail(params);
             String result = "HTTP/1.1 200 ok \n" +
                     "Content-Type: application/json;charset=UTF-8 \n" +
@@ -95,6 +99,7 @@ public class EmailThread extends Thread {
         }
     }
 
+    // æŠ¥é”™çš„HTTPå“åº”
     private void reportError() {
         String result = "HTTP/1.1 400 ok \n" +
                 "Content-Type: text/html \n" +
@@ -107,19 +112,20 @@ public class EmailThread extends Thread {
             e.printStackTrace();
         }
     }
+
+    // è¯»å–URIï¼ŒåŒ…æ‹¬è·¯å¾„å’Œparams
     public static String readApiInfo(InputStream in){
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         String readLine = null;
         String[] split = null;
         try {
             readLine = reader.readLine();
-//            System.out.println(readLine);
             split = readLine.split(" ");
             if (split.length != 3)
                 return null;
             return split[1];
         } catch (Exception e) {
-            //todo:´«¹ıÀ´µÄ¸ñÊ½²»·ûºÏÒªiu
+            //todo:ä¼ è¿‡æ¥çš„æ ¼å¼ä¸ç¬¦åˆè¦iu
         }
         return null;
     }

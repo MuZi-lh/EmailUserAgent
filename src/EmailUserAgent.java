@@ -9,19 +9,22 @@ class EmailUserAgent extends Thread{
     @Override
     public void run() {
         try {
-            //mailService的端口号
+            //mailService鐨勭鍙ｅ彿
             socket = new ServerSocket(60541);
+            System.out.println("Email User Agent鍚姩鎴愬姛");
         } catch (IOException e) {
             e.printStackTrace();
         }
         while(true){
             try {
                 Socket st = socket.accept();
-                System.out.println("EmailUserAgent被访问！IP:" + st.getInetAddress());
+                System.out.println("Email User Agent琚闂紒IP:" + st.getInetAddress());
                 new EmailThread(st).start();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
+
 }
