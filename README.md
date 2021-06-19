@@ -13,7 +13,7 @@ java.net.Socket, java.net.ServerSocket, java.lang.Thread
 
 *大概思路：*
 
-![img](file:///G:\Temp\ksohtml11680\wps1.jpg) 
+![1624109338362](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109338362.png)
 
 ### 二.使用说明
 
@@ -21,13 +21,13 @@ java.net.Socket, java.net.ServerSocket, java.lang.Thread
 
 ##### 通过源码启动Email User Agent Server：
 
-![img](file:///G:\Temp\ksohtml11680\wps2.jpg) 
+![1624109354039](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109354039.png) 
 
 #### 通过class文件启动Email User Agent Server：
 
 java EmailUserAgentServer
 
-![img](file:///G:\Temp\ksohtml11680\wps3.jpg) 
+![1624109371104](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109371104.png) 
 
 得到该命令行提示则说明Email User Agent启动成功
 
@@ -37,7 +37,7 @@ java EmailUserAgentServer
 
 npm run serve 或者 部署打包好后的静态资源至tomcat/nginx等服务器。
 
-![img](file:///G:\Temp\ksohtml11680\wps4.jpg) 
+![1624109375842](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109375842.png) 
 
 
 
@@ -45,37 +45,37 @@ npm run serve 或者 部署打包好后的静态资源至tomcat/nginx等服务�
 
 访问Web资源，即打开使用界面；
 
-![img](file:///G:\Temp\ksohtml11680\wps5.jpg) 
+![1624109381571](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109381571.png) 
 
 输入要登录的邮箱和授权码（注：所登录的qq和163邮箱的smtp和pop3服务要打开，否则将会导致后续的操作出现异常）
 
 #### 发送邮件：
 
-![img](file:///G:\Temp\ksohtml11680\wps6.jpg) 
+![1624109389910](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109389910.png) 
 
 输入内容
 
-![img](file:///G:\Temp\ksohtml11680\wps7.jpg)![img](file:///G:\Temp\ksohtml11680\wps8.jpg) 
+![img](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109395814.png) ![1624109405902](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109405902.png)
 
 点击确认
 
-![img](file:///G:\Temp\ksohtml11680\wps9.jpg)![img](file:///G:\Temp\ksohtml11680\wps10.jpg) 
+![img](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109417269.png) ![1624109421775](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109421775.png)
 
 代理服务器收到HTTP请求，并利用SMTP将邮件发送至目标邮箱
 
-![img](file:///G:\Temp\ksohtml11680\wps11.jpg) 
+![1624109428094](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109428094.png) 
 
 #### 查看邮件：
 
 登录另一个邮箱则可以看到发出的邮件：
 
-![img](file:///G:\Temp\ksohtml11680\wps12.jpg) 
+![1624109433579](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109433579.png) 
 
-![img](file:///G:\Temp\ksohtml11680\wps13.jpg) 
+![1624109439082](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109439082.png) 
 
 邮件过长时只会显示一部分，鼠标移至“内容”上则显示全部内容。
 
-![img](file:///G:\Temp\ksohtml11680\wps14.jpg) 
+![1624109447557](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109447557.png) 
 
  
 
@@ -83,12 +83,12 @@ npm run serve 或者 部署打包好后的静态资源至tomcat/nginx等服务�
 
 选择要删除的邮件并点击“删除邮件”，确认后，则成功删除
 
-![img](file:///G:\Temp\ksohtml11680\wps15.jpg) 
+![1624109454835](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109454835.png) 
 
-![img](file:///G:\Temp\ksohtml11680\wps16.jpg) 
+![1624109458874](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109458874.png) 
 
-![img](file:///G:\Temp\ksohtml11680\wps17.jpg) 
+![1624109463272](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109463272.png) 
 
-![img](file:///G:\Temp\ksohtml11680\wps18.jpg) 
+![1624109468234](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109468234.png) 
 
-![img](file:///G:\Temp\ksohtml11680\wps19.jpg) 
+![1624109472867](G:%5CGitHubFiles%5CEmailUserAgent%5Cimg%5CREADME%5C1624109472867.png) 
